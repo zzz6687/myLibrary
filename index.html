@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/ico" href="/favicon.ico"/>
+    <title>My Library</title>
+  </head>
+  <body>
+    <h1>My Library</h1>
+    <button id="new-book-btn"">Add Book</button>
+    <div id="book-container"></div>
+    
+    <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+    <div id="book-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Add New Book</h3>
+        <form id="modal-form">
+          <label>
+            Title:
+            <input type="text" id="modal-title" required>
+          </label>
+          <label>
+            Author:
+            <input type="text" id="modal-author" required>
+          </label>
+          <label>
+            Pages:
+            <input type="number" id="modal-pages" required min="1">
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="modal-read">
+            I've read this book
+          </label>
+          <div class="modal-buttons">
+            <button type="submit">Add Book</button>
+            <button type="button" id="modal-cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
