@@ -16,18 +16,18 @@
     <div id="book-modal" class="modal hidden">
       <div class="modal-content">
         <h3>Add New Book</h3>
-        <form id="modal-form">
+        <form id="modal-form" novalidate>
           <label>
             Title:
-            <input type="text" id="modal-title" required>
+            <input type="text" id="modal-title" >
           </label>
           <label>
             Author:
-            <input type="text" id="modal-author" required>
+            <input type="text" id="modal-author" >
           </label>
           <label>
             Pages:
-            <input type="number" id="modal-pages" required min="1">
+            <input type="number" id="modal-pages"  min="1">
           </label>
           <label class="checkbox-label">
             <input type="checkbox" id="modal-read">

@@ -63,13 +63,43 @@ document.getElementById("modal-cancel").addEventListener("click", closeModal);
 document.getElementById("modal-form").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const title = document.getElementById("modal-title").value;
-  const author = document.getElementById("modal-author").value;
-  const pages = document.getElementById("modal-pages").value;
+  const title = document.getElementById("modal-title");
+  const author = document.getElementById("modal-author");
+  const pages = document.getElementById("modal-pages");
   const read = document.getElementById("modal-read").checked;
 
-  if (title && pages && author) {
-    addBookToLibrary(title, author, pages, read);
+  let valid = true;
+
+  title.setCustomValidity("");
+  author.setCustomValidity("");
+  pages.setCustomValidity("");
+
+  if (!title.value) {
+    title.setCustomValidity("Enter the title!");
+    title.reportValidity();
+    valid = false;
+  } else {
+    title.setCustomValidity("");
+  }
+
+  if (!author.value) {
+    author.setCustomValidity("Enter the author!");
+    author.reportValidity();
+    valid = false;
+  } else {
+    author.setCustomValidity("");
+  }
+
+  if (!pages.value || isNaN(pages.value)) {
+    pages.setCustomValidity("Enter pages using numbers!");
+    pages.reportValidity();
+    valid = false;
+  } else {
+    pages.setCustomValidity("");
+  }
+
+  if (valid) {
+    addBookToLibrary(title.value, author.value, pages.value, read);
     closeModal();
     document.getElementById("modal-form").reset();
   }
